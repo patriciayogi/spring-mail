@@ -15,12 +15,12 @@ public class MailService {
     @Autowired
     private JavaMailSender mailSender;
 
-    public void sendEmail(String to, String subject, String body) {
-        // TODO exception handler
+    public void sendEmail(Mail mail) {
+
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setTo(to);
-        message.setSubject(subject);
-        message.setText(body);
+        message.setTo(mail.getTo());
+        message.setSubject(mail.getSubject());
+        message.setText(mail.getMessage());
 
         mailSender.send(message);
     }
