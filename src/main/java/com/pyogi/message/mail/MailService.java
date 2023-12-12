@@ -23,5 +23,6 @@ public class MailService {
         message.setText(mail.getMessage());
 
         mailSender.send(message);
+        LOG.debug("Email has been sent to: {}", mail.getTo());
     }
 }
